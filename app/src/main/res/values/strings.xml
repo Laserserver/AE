@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AE</string>
+    <string name="button_text">Button</string>
+    <string name="solved_text">Solved</string>
+    <string name="title_text">Crimes</string>
+    <string name="details_text">Details</string>
+</resources>
