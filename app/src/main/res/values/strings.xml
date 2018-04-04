@@ -4,4 +4,10 @@
     <string name="solved_text">Solved</string>
     <string name="title_text">Crimes</string>
     <string name="details_text">Details</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="date">Date</string>
+    <string name="title">Title</string>
+    <string name="check">Check</string>
 </resources>

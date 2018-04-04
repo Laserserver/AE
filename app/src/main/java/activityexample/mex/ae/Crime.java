@@ -1,5 +1,6 @@
 package activityexample.mex.ae;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,9 +14,9 @@ public class Crime {
     private boolean _solved;
     private Date _date;
 
-    public Crime(String text, Date date){
+    public Crime(String text){
         this._text = text;
-        this._date = date;
+        this._date = new Date();
         _id = UUID.randomUUID();
         _solved = false;
     }
@@ -37,8 +38,8 @@ public class Crime {
         this._id = _id;
     }
 
-    public Date get_date() {
-        return _date;
+    public String get_date() {
+        return new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(_date);
     }
 
     public void set_date(Date _date) {
