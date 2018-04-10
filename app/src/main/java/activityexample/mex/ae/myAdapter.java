@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 public class myAdapter extends RecyclerView.Adapter<myHolder> {
     LayoutInflater li;
+    CrimeList crimeList = CrimeList.GetInstance();
 
     public myAdapter(Context context){
         li = LayoutInflater.from(context);
@@ -27,11 +28,11 @@ public class myAdapter extends RecyclerView.Adapter<myHolder> {
     @Override
     public void onBindViewHolder(myHolder holder, int position) {
         // лист(элемент)
-        holder.bindTo(null);
+        holder.bindTo(crimeList.GetCrime(position));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return crimeList.GetCount();
     }
 }

@@ -34,10 +34,6 @@ public class Crime {
         return _id;
     }
 
-    public void set_id(UUID _id) {
-        this._id = _id;
-    }
-
     public String get_date() {
         return new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(_date);
     }
