@@ -1,4 +1,4 @@
-package activityexample.mex.ae;
+package activityexample.mex.ae.main_activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,12 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import activityexample.mex.ae.list_fragment.myAdapter;
+import activityexample.mex.ae.R;
+import activityexample.mex.ae.list_fragment.ListFragmentAdapter;
 
 
-public class Test extends Fragment {
+public class MainActivityFragmentHolder extends Fragment {
 
-    private RecyclerView _rw;
+    private static RecyclerView _rw;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +27,7 @@ public class Test extends Fragment {
         View v = inflater.inflate(R.layout.activity_fragment_holder, container, false);
         _rw = v.findViewById(R.id.recycler);
         _rw.setLayoutManager(new LinearLayoutManager(getActivity()));
-        _rw.setAdapter(new myAdapter(getContext()));
-        // Сделать синглтон с ленивой инициализацией
-        // Сделай просто какую-нибудь херь внутри списка
-        // Со списком стартовую, при клике на элт вывести тост или сделать активити с детализацией
+        _rw.setAdapter(new ListFragmentAdapter(getContext()));
         return v;
     }
 }

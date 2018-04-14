@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 
 import activityexample.mex.ae.R;
-import activityexample.mex.ae.Test;
 
 public class MainActivity extends FragmentActivity {
 
@@ -19,7 +18,7 @@ public class MainActivity extends FragmentActivity {
         Fragment fragment = fm.findFragmentById(R.id.main_act_fragment);
 
         if(fragment == null){
-            fragment = new Test();
+            fragment = new MainActivityFragmentHolder();
             fm.beginTransaction()
                     .add(R.id.main_act_fragment, fragment)
                     .commit();

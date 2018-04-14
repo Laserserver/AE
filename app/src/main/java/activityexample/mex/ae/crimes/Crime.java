@@ -11,14 +11,17 @@ import java.util.UUID;
 public class Crime {
     private UUID _id;
     private String _text;
+    private String _title;
     private boolean _solved;
     private Date _date;
 
-    public Crime(String text){
+    Crime(String title, String text){
         this._text = text;
+        _solved = false;
+        this._title = title;
+
         this._date = new Date();
         _id = UUID.randomUUID();
-        _solved = false;
     }
 
 
@@ -48,5 +51,13 @@ public class Crime {
 
     public void set_solved(boolean _solved) {
         this._solved = _solved;
+    }
+
+    public String get_title() {
+        return _title;
+    }
+
+    public void set_title(String _title) {
+        this._title = _title;
     }
 }

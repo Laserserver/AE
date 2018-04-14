@@ -19,7 +19,7 @@ public class CrimeList {
 
     private void FillRand(){
         for (int i = 0; i < 20; i++){
-            Crime cm = new Crime("Crime number " + (i + 1));
+            Crime cm = new Crime("Crime number " + (i + 1), "LOREM IPSUM DOLOR SIT AMET");
             cm.set_date(new Date());
             if(i % 5 == 0)
                 cm.set_solved(true);
