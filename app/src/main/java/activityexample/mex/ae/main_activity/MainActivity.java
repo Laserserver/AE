@@ -1,9 +1,12 @@
-package activityexample.mex.ae;
+package activityexample.mex.ae.main_activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+
+import activityexample.mex.ae.R;
+import activityexample.mex.ae.Test;
 
 public class MainActivity extends FragmentActivity {
 

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="activityexample.mex.ae.ListFragment">
+    tools:context="activityexample.mex.ae.list_fragment.ListFragmentItem">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,25 +19,36 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
+                    android:orientation="vertical"
                     android:padding="4dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/title_list_frag"
-                        android:text="@string/title" />
+                        android:id="@+id/frag_list_title"
+                        android:text="@string/frag_list_title" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/frag_list_title_text"
+                        android:text="@string/frag_list_title" />
 
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
+                    android:orientation="vertical"
                     android:padding="4dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/date_list_frag"
-                        android:text="@string/date" />
+                        android:id="@+id/frag_list_date"
+                        android:text="@string/frag_list_date" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/frag_list_date_text"
+                        android:text="@string/frag_list_date" />
 
                 </LinearLayout>
 
@@ -50,8 +61,9 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/check_list_frag"
-                    android:text="@string/check" />
+                    android:id="@+id/frag_list_checkbox"
+                    android:enabled="false"
+                    android:text="@string/solved_text"/>
             </LinearLayout>
         </LinearLayout>
 </FrameLayout>

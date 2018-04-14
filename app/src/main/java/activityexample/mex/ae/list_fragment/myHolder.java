@@ -1,9 +1,12 @@
-package activityexample.mex.ae;
+package activityexample.mex.ae.list_fragment;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import activityexample.mex.ae.R;
+import activityexample.mex.ae.crimes.Crime;
 
 /**
  * Created by Mex on 04.04.2018.
@@ -11,18 +14,18 @@ import android.widget.TextView;
 
 public class myHolder extends RecyclerView.ViewHolder {
     // Родительский элемент для списка?
-    TextView _date, _title;
-    CheckBox _cb;
-    public myHolder(View itemView) {
+    private TextView _date, _title;
+    private CheckBox _cb;
+    myHolder(View itemView) {
         super(itemView);
-        _cb = itemView.findViewById(R.id.check_list_frag);
-        _date = itemView.findViewById(R.id.date_list_frag);
-        _title = itemView.findViewById(R.id.title_list_frag);
+        _cb = itemView.findViewById(R.id.frag_list_checkbox);
+        _date = itemView.findViewById(R.id.frag_list_date_text);
+        _title = itemView.findViewById(R.id.frag_list_title_text);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                _cb.setChecked(true);
             }
         });
 
