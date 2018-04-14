@@ -12,8 +12,6 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class ListFragment extends Fragment {
-
-
     public ListFragment() {
         // Required empty public constructor
     }
