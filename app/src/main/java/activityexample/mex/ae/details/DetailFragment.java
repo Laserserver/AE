@@ -38,6 +38,7 @@ public class DetailFragment extends Fragment {
         // Required empty public constructor
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,5 +113,4 @@ public class DetailFragment extends Fragment {
         _text.setText(_crime.get_text());
         _cb.setChecked(_crime.is_solved());
     }
-
 }

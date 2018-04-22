@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import java.util.concurrent.Callable;
-
 import activityexample.mex.ae.R;
 import activityexample.mex.ae.crimes.Crime;
 import activityexample.mex.ae.details.DetailActivity;
@@ -20,7 +18,6 @@ import activityexample.mex.ae.details.DetailActivity;
 public class ListFragmentHolder extends RecyclerView.ViewHolder {
     // Родительский элемент для списка?
     public static final String LFH_INDEX_CONST = "Sos";
-    public static final String LFH_FUNC_CONST = "Sas";
     private TextView _date, _title;
     private CheckBox _cb;
     private Context _cont;
@@ -36,6 +33,7 @@ public class ListFragmentHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Intent ints = DetailActivity.newIntent(_cont);
                 Intent ints = DetailActivity.newIntent(_cont);
                 ints.putExtra(LFH_INDEX_CONST, _index);
                 _cont.startActivity(ints);
