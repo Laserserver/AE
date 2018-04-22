@@ -15,7 +15,6 @@ import activityexample.mex.ae.list_fragment.ListFragmentAdapter;
 
 public class MainActivityFragmentHolder extends Fragment {
 
-    private static RecyclerView _rw;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +24,7 @@ public class MainActivityFragmentHolder extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_fragment_holder, container, false);
-        _rw = v.findViewById(R.id.recycler);
+        RecyclerView _rw = v.findViewById(R.id.recycler);
         _rw.setLayoutManager(new LinearLayoutManager(getActivity()));
         _rw.setAdapter(new ListFragmentAdapter(getContext()));
         return v;

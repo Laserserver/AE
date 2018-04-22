@@ -13,10 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import activityexample.mex.ae.R;
+import activityexample.mex.ae.ViewPagerActivity;
 import activityexample.mex.ae.crimes.Crime;
 import activityexample.mex.ae.crimes.CrimeList;
-import activityexample.mex.ae.list_fragment.ListFragmentAdapter;
 import activityexample.mex.ae.list_fragment.ListFragmentHolder;
+
+import static activityexample.mex.ae.ViewPagerActivity.VPA_EXTRA_POS;
+import static activityexample.mex.ae.details.DetailActivity.DET_ACT_CONST;
 
 
 public class DetailFragment extends Fragment {
@@ -27,12 +30,13 @@ public class DetailFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private int _index;
     private Crime _crime;
 
     private EditText _title, _text;
     private TextView _date;
     private CheckBox _cb;
+    //private DetailActivity.OnDataChange _signalise;
+    private ViewPagerActivity.OnDataChange _signalise;
 
     public DetailFragment() {
         // Required empty public constructor
@@ -45,10 +49,10 @@ public class DetailFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            _index = getArguments().getInt(ListFragmentHolder.LFH_INDEX_CONST);
-            _crime = CrimeList.GetInstance().GetCrime(_index);
+            //_crime = CrimeList.GetInstance().GetCrime(getArguments().getInt(ListFragmentHolder.LFH_INDEX_CONST));
+            _crime = CrimeList.GetInstance().GetCrime(getArguments().getInt(VPA_EXTRA_POS));
+            _signalise = getArguments().getParcelable(ViewPagerActivity.VPA_EXTRA_FUNC);
         }
-
     }
 
     @Override
@@ -59,12 +63,19 @@ public class DetailFragment extends Fragment {
         _date = v.findViewById(R.id.frag_det_date);
         _text = v.findViewById(R.id.frag_det_text);
         _cb = v.findViewById(R.id.frag_det_checkbox);
+        SetListeners();
+        FillData();
+        return v;
+    }
+
+    private void SetListeners(){
 
         _cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 _crime.set_solved(isChecked);
-                ListFragmentAdapter.func.accept(_index);
+                _signalise.Signalize();
+                //ListFragmentAdapter.func.accept(_index);
             }
         });
 
@@ -77,7 +88,8 @@ public class DetailFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 _crime.set_title(s.toString());
-                ListFragmentAdapter.func.accept(_index);
+                _signalise.Signalize();
+                //ListFragmentAdapter.func.accept(_index);
             }
 
             @Override
@@ -95,7 +107,8 @@ public class DetailFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 _crime.set_text(s.toString());
-                ListFragmentAdapter.func.accept(_index);
+                _signalise.Signalize();
+                //ListFragmentAdapter.func.accept(_index);
             }
 
             @Override
@@ -103,8 +116,6 @@ public class DetailFragment extends Fragment {
 
             }
         });
-        FillData();
-        return v;
     }
 
     private void FillData(){
